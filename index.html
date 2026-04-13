@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3º Ano Exatas - Hub de Inovação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="cabecalho">
+    <h1 class="titulo">Turma 3º Ano de Exatas</h1>
+    <nav class="menu">
+        <a class="menu-link" href="#" onclick="showContent('inicio')">Início</a>
+        <a class="menu-link" href="#" onclick="showContent('projetos')">Projetos</a>
+        <a class="menu-link" href="#" onclick="showContent('alunos')">Alunos</a>
+        <a class="menu-link" href="#" onclick="showContent('professores')">Professores</a>
+        <a class="menu-link" href="#" onclick="showContent('inovacao')">💡 Mentoria Reversa</a>
+    </nav>
+</header>
+
+<main class="conteudo" id="main-content">
+    </main>
+
+<footer class="rodape">
+    <p>Projeto Escolar 2026 | Desenvolvido pela Turma de Exatas</p>
+</footer>
+
+<script>
+    const data = {
+        inicio: `
+            <section class="bloco">
+                <h2 class="subtitulo">Sobre a Turma</h2>
+                <p class="texto">Focados no futuro. Nossa turma une lógica matemática com criatividade tecnológica para resolver problemas reais.</p>
+                <div class="stats">
+                    <div class="stat-item"><strong>35</strong> Alunos</div>
+                    <div class="stat-item"><strong>12</strong> Projetos Ativos</div>
+                </div>
+            </section>
+        `,
+        projetos: `
+            <section class="bloco">
+                <h2 class="subtitulo">Nossos Projetos</h2>
+                <ul class="lista">
+                    <li><strong>Robótica:</strong> Braço mecânico controlado via Bluetooth.</li>
+                    <li><strong>Web:</strong> Este portal dinâmico.</li>
+                    <li><strong>Sustentabilidade:</strong> Sensor de umidade para horta escolar.</li>
+                </ul>
+            </section>
+        `,
+        alunos: `
+            <section class="bloco">
+                <h2 class="subtitulo">Squad de Alunos</h2>
+                <div class="grid-cards">
+                    <div class="card"><strong>Ana Silva</strong><br>Dev Frontend</div>
+                    <div class="card"><strong>Bruno Costa</strong><br>Eng. Robótica</div>
+                    <div class="card"><strong>Carla Dias</strong><br>Data Science</div>
+                </div>
+            </section>
+        `,
+        professores: `
+            <section class="bloco">
+                <h2 class="subtitulo">Corpo Docente</h2>
+                <div class="grid-cards">
+                    <div class="card card-prof"><strong>Prof. Newton</strong><br>Física Aplicada</div>
+                    <div class="card card-prof"><strong>Profa. Ada</strong><br>Lógica & Algoritmos</div>
+                </div>
+            </section>
+        `,
+        inovacao: `
+            <section class="bloco inovacao-secao">
+                <h2 class="subtitulo">💡 Inovação: Mentoria Reversa</h2>
+                <p class="texto">Aqui, a troca é mútua. Alunos ensinam ferramentas digitais aos professores, e professores guiam os alunos em carreiras acadêmicas.</p>
+                <button class="btn-acao">Quero participar da troca</button>
+            </section>
+        `
+    };
+
+    function showContent(section) {
+        document.getElementById('main-content').innerHTML = data[section];
+        
+        // Atualiza a aba ativa visualmente
+        document.querySelectorAll('.menu-link').forEach(link => {
+            link.style.color = link.innerText.includes(section.charAt(0).toUpperCase()) ? '#007bff' : '#adb5bd';
+        });
+    }
+
+    // Carrega a página inicial ao abrir
+    window.onload = () => showContent('inicio');
+</script>
+
+</body>
+</html>
